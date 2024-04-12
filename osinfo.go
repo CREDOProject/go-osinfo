@@ -1,12 +1,28 @@
 package goosinfo
 
-import "runtime"
+import (
+	"fmt"
+	"runtime"
+
+	shell "github.com/CREDOProject/sharedutils/shell"
+)
+
+var commander = shell.New()
 
 type OSInfo struct {
 	Architecture string
 	Name         string
 	Version      string
 	Distribution string
+}
+
+func (i *OSInfo) String() string {
+	return fmt.Sprintf("%s %s %s %s",
+		i.Name,
+		i.Distribution,
+		i.Version,
+		i.Architecture,
+	)
 }
 
 // Retrieve OS information.
