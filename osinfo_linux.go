@@ -24,6 +24,9 @@ func (i *OSInfo) retrieve() error {
 	}
 	i.Distribution = kv["ID"]
 	i.Version = kv["VERSION_ID"]
+	if like, ok := kv["ID_LIKE"]; ok {
+		i.Like = strings.Split(like, " ")
+	}
 
 	return nil
 }

@@ -14,14 +14,16 @@ type OSInfo struct {
 	Name         string
 	Version      string
 	Distribution string
+	Like         []string
 }
 
 func (i *OSInfo) String() string {
-	return fmt.Sprintf("%s %s %s %s",
+	return fmt.Sprintf("%s %s %s %s %v",
 		i.Name,
 		i.Distribution,
 		i.Version,
 		i.Architecture,
+		i.Like,
 	)
 }
 
